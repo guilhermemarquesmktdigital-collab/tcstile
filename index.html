@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCS Tile Company Solution LLC | Atlanta Tile Installation &amp; Bathroom Remodeling</title>
+<meta name="description" content="Family-owned, owner-operated tile installation in Atlanta, GA. 30+ years of hands-on experience in floors, bathroom remodeling, and backsplashes. Free estimates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='6 2 68 88'%3E%3Cpolygon points='50,6 70,26 50,46 30,26' fill='%23E4B250'/%3E%3Cpolygon points='30,26 50,46 30,66 10,46' fill='%23AC8022'/%3E%3Cpolygon points='50,46 70,66 50,86 30,66' fill='%2392701E'/%3E%3C/svg%3E">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicons/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicons/android-chrome-512x512.png">
+<meta name="theme-color" content="#15130f">
+<style>
+  :root{
+    --canvas:#15130f;
+    --panel:#1e1b16;
+    --surface:#262218;
+    --surface-light:#f4ede0;
+    --line:#3a3327;
+    --ink:#f4ede0;
+    --ink-dim:#b8ac97;
+    --ink-faint:#8a7f6c;
+    --accent:#e05a26;
+    --accent-dim:#a8431c;
+    --accent-soft:#f0e4d3;
+    --radius:2px;
+    --radius-lg:4px;
+    --max:1200px;
+    --gap:80px;
+    font-size:16px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; overflow-x:hidden;}
+  body{
+    background:var(--canvas);
+    color:var(--ink);
+    font-family:'Inter', ui-sans-serif, system-ui, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk', ui-sans-serif, sans-serif;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    line-height:1.08;
+    color:var(--ink);
+  }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%; height:auto;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  section{padding:var(--gap) 0;}
+  .eyebrow{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--accent);
+    display:inline-block;
+  }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(21,19,15,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:var(--max); margin:0 auto; padding:0 28px;
+    height:76px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:19px;
+    letter-spacing:-0.01em;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo-mark{ width:26px; height:auto; flex-shrink:0; }
+  .footer-brand .logo-mark{ width:24px; }
+  .logo .mark{color:var(--accent);}
+  .logo small{
+    display:block;
+    font-family:'Inter',sans-serif;
+    font-weight:500;
+    font-size:9.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-top:2px;
+  }
+  nav.links{display:flex; gap:34px;}
+  nav.links a{
+    font-size:14px; font-weight:500; color:var(--ink-dim);
+    transition:color .15s ease;
+    position:relative;
+  }
+  nav.links a:hover{color:var(--ink);}
+  .nav-right{display:flex; align-items:center; gap:18px;}
+  .phone-link{font-size:14px; font-weight:600; color:var(--ink); display:none;}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:12px 24px;
+    border-radius:999px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:14px; font-weight:600;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .btn-accent{ background:var(--accent); color:#17140f; }
+  .btn-accent:hover{ background:#ef6a37; transform:translateY(-1px); }
+  .btn-ghost{ background:transparent; color:var(--ink); border-color:var(--line); }
+  .btn-ghost:hover{ border-color:var(--ink-dim); }
+  .menu-toggle{
+    display:none;
+    background:none; border:none; color:var(--ink); font-size:20px;
+    cursor:pointer; padding:6px; line-height:1;
+  }
+  .menu-check{ display:none; }
+  .menu-icon-close{ display:none; }
+  .menu-check:checked ~ .nav .menu-toggle .menu-icon-open{ display:none; }
+  .menu-check:checked ~ .nav .menu-toggle .menu-icon-close{ display:inline; }
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    gap:2px;
+    background:var(--panel);
+    border-bottom:1px solid var(--line);
+    padding:10px 28px 20px;
+  }
+  .menu-check:checked ~ .mobile-menu{ display:flex; }
+  .mobile-menu a{
+    padding:13px 4px;
+    font-size:15px;
+    font-weight:500;
+    color:var(--ink-dim);
+    border-bottom:1px solid var(--line);
+  }
+  .mobile-menu a:last-child{ border-bottom:none; }
+  .mobile-menu .btn{ text-align:center; }
+
+  @media (max-width: 880px){
+    nav.links{ display:none; }
+    .menu-toggle{ display:block; }
+    .nav-right .btn-ghost{ display:none; }
+  }
+  @media (max-width: 520px){
+    .nav-right .btn-accent{ display:none; }
+  }
+  html.menu-open{ overflow:hidden; }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    padding-top:150px;
+    padding-bottom:0;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+    padding-bottom:64px;
+  }
+  .hero-badge{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:8px 16px 8px 8px;
+    border-radius:999px;
+    font-size:13px;
+    color:var(--ink-dim);
+    margin-bottom:28px;
+    max-width:100%;
+  }
+  .hero-badge .num{
+    background:var(--accent);
+    color:#17140f;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:12px;
+    border-radius:999px;
+    padding:4px 10px;
+  }
+  .hero h1{
+    font-size:clamp(38px, 5vw, 60px);
+    margin-bottom:22px;
+  }
+  .hero h1 em{ color:var(--accent); font-style:normal; }
+  .hero p.lead{
+    font-size:18px;
+    color:var(--ink-dim);
+    max-width:480px;
+    margin-bottom:34px;
+  }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:44px; }
+  .btn-lg{ padding:15px 28px; font-size:15px; }
+  .hero-stats{
+    display:grid;
+    grid-template-columns: repeat(3, auto);
+    gap:36px;
+  }
+  .hero-stats .stat b{
+    display:block;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:28px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .hero-stats .stat span{
+    font-size:12.5px;
+    color:var(--ink-faint);
+    letter-spacing:0.02em;
+  }
+  .hero-media{
+    position:relative;
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    aspect-ratio:4/5;
+    border:1px solid var(--line);
+  }
+  .hero-media img{ width:100%; height:100%; object-fit:cover; }
+  .hero-media .tag{
+    position:absolute; left:18px; bottom:18px;
+    background:rgba(21,19,15,0.82);
+    backdrop-filter:blur(4px);
+    border:1px solid var(--line);
+    padding:9px 14px;
+    border-radius:999px;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    display:flex; align-items:center; gap:8px;
+  }
+  .hero-media .tag::before{
+    content:""; width:6px; height:6px; border-radius:50%; background:var(--accent);
+  }
+  .hero-strip{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--panel);
+  }
+  .hero-strip .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+    padding-top:18px;
+    padding-bottom:18px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .hero-strip span{ white-space:nowrap; }
+  .hero-strip .dot{ color:var(--accent); }
+
+  @media (max-width: 900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-media{ aspect-ratio:16/11; order:-1; }
+    .hero-stats{ grid-template-columns:repeat(3,1fr); gap:14px 10px; }
+    .hero{ padding-top:100px; }
+  }
+  @media (max-width: 480px){
+    .hero-stats .stat b{ font-size:22px; }
+    .hero-stats .stat span{ font-size:11px; }
+    .hero-badge{ font-size:12px; padding:7px 14px 7px 7px; }
+  }
+
+  /* ===== Section headings ===== */
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    margin-bottom:52px;
+  }
+  .section-head h2{ font-size:clamp(30px,3.6vw,44px); max-width:640px; }
+  .section-head p{ color:var(--ink-dim); max-width:360px; font-size:15.5px; padding-bottom:4px; }
+  @media (max-width:760px){
+    .section-head{ flex-direction:column; align-items:flex-start; gap:16px; }
+  }
+
+  /* ===== Services ===== */
+  .services{ background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+  }
+  .service-card{
+    background:var(--panel);
+    padding:34px 26px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    transition:background .2s ease;
+  }
+  .service-card:hover{ background:var(--surface); }
+  .service-card .idx{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    color:var(--accent);
+    font-weight:700;
+  }
+  .service-card h3{ font-size:19px; }
+  .service-card p{ color:var(--ink-dim); font-size:14.5px; }
+  @media (max-width:900px){
+    .service-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:560px){
+    .service-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ===== Before / After ===== */
+  .reveal-wrap{
+    position:relative;
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    border:1px solid var(--line);
+    aspect-ratio:4/3;
+    max-width:760px;
+    margin:0 auto;
+    cursor:ew-resize;
+    user-select:none;
+    touch-action:none;
+  }
+  .reveal-wrap img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    pointer-events:none;
+  }
+  .reveal-wrap .after-img{ clip-path:inset(0 0 0 50%); }
+  .reveal-handle{
+    position:absolute; top:0; bottom:0; left:50%;
+    width:2px; background:var(--accent);
+    transform:translateX(-1px);
+    pointer-events:none;
+  }
+  .reveal-handle .grip{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:44px; height:44px; border-radius:50%;
+    background:var(--accent);
+    display:flex; align-items:center; justify-content:center;
+    color:#17140f;
+    font-size:16px;
+    box-shadow:0 0 0 5px rgba(21,19,15,0.55);
+  }
+  .reveal-label{
+    position:absolute; top:16px;
+    background:rgba(21,19,15,0.78);
+    border:1px solid var(--line);
+    padding:6px 13px;
+    border-radius:999px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:11.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    pointer-events:none;
+  }
+  .reveal-label.before{ left:16px; }
+  .reveal-label.after{ right:16px; }
+  .ba-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .ba-copy p{ color:var(--ink-dim); margin-bottom:16px; max-width:440px; }
+  .ba-list{ margin-top:26px; display:flex; flex-direction:column; gap:14px; }
+  .ba-list li{ list-style:none; display:flex; gap:12px; font-size:14.5px; color:var(--ink-dim); }
+  .ba-list li::before{ content:"—"; color:var(--accent); flex-shrink:0; }
+  .ba-hint{ text-align:center; font-size:12.5px; color:var(--ink-faint); margin-top:14px; letter-spacing:0.04em; }
+  @media (max-width:900px){
+    .ba-grid{ grid-template-columns:1fr; }
+    .ba-grid{ display:flex; flex-direction:column-reverse; gap:32px; }
+  }
+
+  /* ===== Portfolio ===== */
+  .portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows:200px;
+    gap:10px;
+  }
+  .portfolio-grid figure{
+    position:relative;
+    overflow:hidden;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    margin:0;
+  }
+  .portfolio-grid img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform .5s ease;
+  }
+  .portfolio-grid figure:hover img{ transform:scale(1.06); }
+  .portfolio-grid figcaption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:14px 16px;
+    background:linear-gradient(180deg, transparent, rgba(15,13,10,0.92));
+    font-size:12.5px;
+    color:var(--surface-light);
+    font-weight:500;
+    letter-spacing:0.01em;
+    opacity:0;
+    transform:translateY(6px);
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .portfolio-grid figure:hover figcaption{ opacity:1; transform:translateY(0); }
+  .pf-tall{ grid-row:span 2; }
+  .pf-wide{ grid-column:span 2; }
+  .portfolio-grid figure{ cursor:zoom-in; }
+  .zoom-hint{
+    position:absolute; top:12px; right:12px;
+    width:30px; height:30px;
+    border-radius:50%;
+    background:rgba(21,19,15,0.7);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--surface-light);
+    font-size:14px;
+    opacity:0;
+    transition:opacity .25s ease;
+    pointer-events:none;
+  }
+  .portfolio-grid figure:hover .zoom-hint{ opacity:1; }
+  @media (max-width:900px){
+    .portfolio-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:170px; }
+    .pf-wide{ grid-column:span 2; }
+  }
+  @media (max-width:560px){
+    .portfolio-grid{ grid-template-columns:1fr; }
+    .pf-wide, .pf-tall{ grid-column:span 1; grid-row:span 1; aspect-ratio:4/3; height:auto; }
+    .portfolio-grid figcaption{ opacity:1; transform:none; }
+  }
+
+  /* ===== About ===== */
+  .about{ background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-figure{
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    border:1px solid var(--line);
+    aspect-ratio:3/4;
+  }
+  .about-figure img{ width:100%; height:100%; object-fit:cover; }
+  .about-copy p{ color:var(--ink-dim); font-size:16px; margin-bottom:18px; max-width:560px; }
+  .about-copy p.name{ color:var(--ink); font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; margin-top:26px; }
+  .about-copy p.name span{ display:block; font-family:'Inter',sans-serif; font-weight:400; font-size:13px; color:var(--ink-faint); margin-top:2px; }
+  .trust-list{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px 28px;
+  }
+  .trust-list div{ border-top:1px solid var(--line); padding-top:14px; }
+  .trust-list b{ display:block; font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:5px; }
+  .trust-list span{ font-size:13.5px; color:var(--ink-faint); }
+  @media (max-width:860px){
+    .about-grid{ grid-template-columns:1fr; }
+    .about-figure{ max-width:340px; aspect-ratio:4/5; }
+    .trust-list{ grid-template-columns:1fr 1fr; }
+  }
+
+  /* ===== Service area ===== */
+  .area-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .city-list{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin-top:24px;
+  }
+  .city-list span{
+    border:1px solid var(--line);
+    padding:9px 16px;
+    border-radius:999px;
+    font-size:13.5px;
+    color:var(--ink-dim);
+  }
+  .city-list span.main{ border-color:var(--accent); color:var(--accent); }
+  .radar{
+    position:relative;
+    aspect-ratio:1;
+    max-width:380px;
+    margin:0 auto;
+    border-radius:50%;
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .radar::before, .radar::after{
+    content:""; position:absolute; border-radius:50%; border:1px solid var(--line);
+  }
+  .radar::before{ inset:16%; }
+  .radar::after{ inset:34%; }
+  .radar .center{
+    width:14px; height:14px; border-radius:50%; background:var(--accent);
+    box-shadow:0 0 0 8px rgba(224,90,38,0.14);
+    position:relative; z-index:2;
+  }
+  .radar .pin{
+    position:absolute;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    white-space:nowrap;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  @media (max-width:860px){
+    .area-grid{ grid-template-columns:1fr; }
+    .radar{ order:-1; }
+  }
+  @media (max-width:640px){
+    .radar .pin{ display:none; }
+  }
+
+  /* ===== CTA / Contact ===== */
+  .cta{
+    background:var(--accent);
+    color:#17140f;
+    border-radius:var(--radius-lg);
+    padding:64px 48px;
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:40px;
+    align-items:center;
+  }
+  .cta h2{ color:#17140f; font-size:clamp(28px,3.4vw,40px); margin-bottom:14px; }
+  .cta p{ color:#3a2314; font-size:16px; max-width:440px; }
+  .cta-actions{ display:flex; flex-direction:column; gap:12px; align-items:flex-start; }
+  .cta .btn-dark{ background:#17140f; color:var(--surface-light); }
+  .cta .btn-dark:hover{ background:#241f16; }
+  .cta .btn-outline-dark{ background:transparent; border:1px solid rgba(23,20,15,0.4); color:#17140f; }
+  .contact-line{ font-size:13.5px; color:#3a2314; margin-top:6px; }
+  @media (max-width:800px){
+    .cta{ grid-template-columns:1fr; padding:44px 26px; }
+  }
+
+  /* ===== Footer ===== */
+  footer{ padding:56px 0 34px; border-top:1px solid var(--line); }
+  .footer-grid{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px;
+    padding-bottom:32px;
+  }
+  .footer-brand .logo{ margin-bottom:12px; }
+  .footer-brand p{ font-size:13.5px; color:var(--ink-faint); max-width:280px; }
+  .footer-cols{ display:flex; gap:64px; flex-wrap:wrap; }
+  .footer-col h4{ font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:14px; font-weight:600; }
+  .footer-col a, .footer-col p{ display:block; font-size:14px; color:var(--ink-dim); margin-bottom:9px; }
+  .footer-col a:hover{ color:var(--ink); }
+  .footer-bottom{
+    border-top:1px solid var(--line); padding-top:24px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:12.5px; color:var(--ink-faint);
+  }
+
+  .fade-up{ opacity:1; transform:none; transition:opacity .6s ease, transform .6s ease; }
+  html.js-anim .fade-up{ opacity:0; transform:translateY(18px); }
+  html.js-anim .fade-up.in{ opacity:1; transform:none; }
+  .fade-up.in{ opacity:1; transform:none; }
+
+  /* ===== Lightbox ===== */
+  .lightbox{
+    position:fixed; inset:0; z-index:200;
+    background:rgba(10,9,7,0.94);
+    display:none;
+    align-items:center; justify-content:center;
+    padding:70px 24px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox-inner{
+    position:relative;
+    max-width:1100px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+  }
+  .lightbox-inner img{
+    max-width:100%;
+    max-height:78vh;
+    width:auto;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    object-fit:contain;
+    background:var(--panel);
+  }
+  .lightbox-caption{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:14px;
+    color:var(--ink-dim);
+    letter-spacing:0.02em;
+  }
+  .lightbox-close, .lightbox-prev, .lightbox-next{
+    position:absolute;
+    background:rgba(21,19,15,0.75);
+    border:1px solid var(--line);
+    color:var(--surface-light);
+    border-radius:50%;
+    width:44px; height:44px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px;
+    cursor:pointer;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover{
+    background:var(--accent); color:#17140f; border-color:var(--accent);
+  }
+  .lightbox-close{ top:-58px; right:0; }
+  .lightbox-prev{ left:-8px; top:50%; transform:translateY(-50%); }
+  .lightbox-next{ right:-8px; top:50%; transform:translateY(-50%); }
+  @media (max-width:760px){
+    .lightbox{ padding:90px 16px 24px; }
+    .lightbox-close{ top:-60px; right:0; }
+    .lightbox-prev{ left:-2px; }
+    .lightbox-next{ right:-2px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <input type="checkbox" id="menuCheck" class="menu-check">
+  <div class="nav">
+    <a href="#top" class="logo">
+      <svg class="logo-mark" viewBox="6 2 68 88" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="50,6 70,26 50,46 30,26" fill="#E4B250"/>
+        <polygon points="30,26 50,46 30,66 10,46" fill="#AC8022"/>
+        <polygon points="50,46 70,66 50,86 30,66" fill="#92701E"/>
+      </svg>
+      <span>TCS Tile Co.</span>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#about">About Fernando</a>
+      <a href="#area">Service Area</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a href="tel:+12254955414" class="btn btn-ghost">Call (225) 495-5414</a>
+      <a href="#contact" class="btn btn-accent">Free Estimate</a>
+      <label for="menuCheck" class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span class="menu-icon-open">☰</span>
+        <span class="menu-icon-close">✕</span>
+      </label>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#work">Our Work</a>
+    <a href="#about">About Fernando</a>
+    <a href="#area">Service Area</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+12254955414" class="btn btn-accent" style="margin-top:8px;">Call (225) 495-5414</a>
+    <a href="#contact" class="btn btn-outline-dark" style="margin-top:2px; border:1px solid var(--line); color:var(--ink);">Get a Free Estimate</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="fade-up in">
+          <div class="hero-badge">
+            <span class="num">30+ yrs</span>
+            <span>Owner-operated — Fernando is on every job</span>
+          </div>
+          <h1>Tile work that's <em>plumb, level,<br> and built to last.</em></h1>
+          <p class="lead">TCS Tile Company Solution LLC installs floors, bathrooms, and backsplashes across metro Atlanta — every project personally set by Fernando, a tile setter with more than three decades in the trade.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-accent btn-lg">Get a Free Estimate</a>
+            <a href="#work" class="btn btn-ghost btn-lg">See Our Work</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><b>30+</b><span>Years of experience</span></div>
+            <div class="stat"><b>1</b><span>Owner on every job</span></div>
+            <div class="stat"><b>ATL</b><span>&amp; surrounding areas</span></div>
+          </div>
+        </div>
+        <div class="hero-media fade-up in">
+          <img src="images/hero-finished-bath.jpg" alt="Finished marble bathroom with soaking tub and glass shower installed by TCS Tile Company" width="1200" height="1600" loading="eager">
+          <div class="tag">Full bathroom remodel — Milton, GA</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-strip">
+      <div class="wrap">
+        <span>Floor Installation <span class="dot">·</span></span>
+        <span>Bathroom Remodeling <span class="dot">·</span></span>
+        <span>Backsplashes <span class="dot">·</span></span>
+        <span>Shower Waterproofing <span class="dot">·</span></span>
+        <span>Custom Patterns &amp; Layouts</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head fade-up">
+        <h2>Three decades of tile work, boiled down to four things done right.</h2>
+        <p>No subcontracted labor and no rotating crews — Fernando lays out, cuts, sets, and grouts every job himself.</p>
+      </div>
+      <div class="service-grid fade-up">
+        <div class="service-card">
+          <span class="idx">01</span>
+          <h3>Floor Installation</h3>
+          <p>Porcelain, ceramic, and marble-look tile in straight-lay, diagonal, or custom patterned layouts, set dead-level with professional leveling systems.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">02</span>
+          <h3>Bathroom Remodeling</h3>
+          <p>Full shower and tub surrounds, curbless and custom pans, niches, benches, and mosaic accents — from demo to the final coat of grout sealer.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">03</span>
+          <h3>Backsplash Installation</h3>
+          <p>Kitchen and bar backsplashes cut clean around outlets and cabinets, with tight, even grout lines that finish a room properly.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">04</span>
+          <h3>Waterproofing &amp; Prep</h3>
+          <p>Proper substrate prep and membrane systems (Schluter-Kerdi &amp; equivalent) on every wet area — the part no one sees, done so nothing leaks or cracks later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section id="prep">
+    <div class="wrap">
+      <div class="ba-grid">
+        <div class="ba-copy fade-up">
+          <div class="eyebrow">The part you never see</div>
+          <h2 style="font-size:clamp(28px,3.2vw,38px); margin-bottom:18px;">What holds up a shower isn't the tile. It's what's under it.</h2>
+          <p>Before a single tile goes on the wall, this shower gets a fully bonded waterproofing membrane, correctly sloped mud bed, and sealed seams at every corner and penetration. It's the least photogenic part of the job — and the reason a shower lasts twenty years instead of five.</p>
+          <ul class="ba-list">
+            <li>Fully waterproofed pans, walls, and niches on every wet area</li>
+            <li>Correctly sloped shower floors so water actually drains</li>
+            <li>Sealed seams and penetrations — no shortcuts behind the tile</li>
+          </ul>
+        </div>
+        <div class="fade-up">
+          <div class="reveal-wrap" id="revealWrap">
+            <img src="images/before-waterproofing.jpg" alt="Shower before tile: waterproofing membrane applied to walls and pan" class="before-img">
+            <img src="images/hero-finished-bath.jpg" alt="Same shower after tile: finished marble surround and soaking tub" class="after-img" id="afterImg">
+            <div class="reveal-handle" id="revealHandle" style="left:50%;">
+              <div class="grip">↔</div>
+            </div>
+            <div class="reveal-label before">Before</div>
+            <div class="reveal-label after">After</div>
+          </div>
+          <p class="ba-hint">Drag to compare — same bathroom, before waterproofing and after the finished tile</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head fade-up">
+        <h2>A sample of recent floors, showers, and finishes.</h2>
+        <p>Every project below was measured, cut, and set by Fernando — no two layouts are the same.</p>
+      </div>
+      <div class="portfolio-grid fade-up" id="portfolioGrid">
+        <figure class="pf-tall" data-caption="Diagonal checkerboard entry floor">
+          <img src="images/portfolio-diagonal-floor-entry.jpg" alt="Diagonal checkerboard porcelain floor tile at a front entryway" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Diagonal checkerboard entry floor</figcaption>
+        </figure>
+        <figure class="pf-wide" data-caption="Marble-look tub &amp; shower surround">
+          <img src="images/portfolio-marble-tub-shower.jpg" alt="Marble-look tub and shower surround with mosaic floor accent" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Marble-look tub &amp; shower surround</figcaption>
+        </figure>
+        <figure data-caption="Hex mosaic shower floor">
+          <img src="images/portfolio-hex-mosaic-floor.jpg" alt="Black and white hexagon mosaic shower floor detail" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Hex mosaic shower floor</figcaption>
+        </figure>
+        <figure data-caption="Mosaic accent wall">
+          <img src="images/portfolio-pebble-accent.jpg" alt="Marble hexagon mosaic accent wall in a shower" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Mosaic accent wall</figcaption>
+        </figure>
+        <figure class="pf-wide" data-caption="Large-format wall tile with mosaic border">
+          <img src="images/portfolio-espresso-wall.jpg" alt="Large-format espresso brown tile shower wall with hexagon mosaic border" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Large-format wall tile with mosaic border</figcaption>
+        </figure>
+        <figure class="pf-tall" data-caption="Charcoal vertical-lay shower">
+          <img src="images/portfolio-charcoal-shower.jpg" alt="Charcoal vertical tile shower with dramatic lighting" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Charcoal vertical-lay shower</figcaption>
+        </figure>
+        <figure class="pf-wide" data-caption="Diagonal checkerboard floor, brown &amp; cream">
+          <img src="images/portfolio-diagonal-floor-2.jpg" alt="Brown and cream diagonal checkerboard tile floor" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Diagonal checkerboard floor, brown &amp; cream</figcaption>
+        </figure>
+        <figure data-caption="Leveling system, pre-grout">
+          <img src="images/process-leveling-system.jpg" alt="Shower walls set with tile leveling clip system before grouting" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Leveling system, pre-grout</figcaption>
+        </figure>
+        <figure data-caption="Custom waterproofed shower pan">
+          <img src="images/process-waterproof-pan.jpg" alt="Fully waterproofed custom shower pan liner before tile" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Custom waterproofed shower pan</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lbClose" aria-label="Close">✕</button>
+      <button class="lightbox-prev" id="lbPrev" aria-label="Previous photo">‹</button>
+      <img id="lbImg" src="" alt="">
+      <button class="lightbox-next" id="lbNext" aria-label="Next photo">›</button>
+      <div class="lightbox-caption" id="lbCaption"></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-figure fade-up">
+          <img src="images/process-red-membrane.jpg" alt="Shower being prepped with waterproofing membrane before tile installation" loading="lazy">
+        </div>
+        <div class="about-copy fade-up">
+          <div class="eyebrow">About TCS Tile Company</div>
+          <h2 style="font-size:clamp(28px,3.4vw,42px); margin-bottom:20px;">Meet Fernando.</h2>
+          <p>For more than 30 years, Fernando has made his living down on his knees on job sites — setting tile, leveling floors, and building showers that are still watertight decades later. He founded TCS Tile Company Solution LLC to do things the way he always has: no subcontracted crews, no cut corners, just one experienced tradesman who shows up and does the work himself.</p>
+          <p>From the first chalk line to the last wipe of the grout haze, every TCS project is planned and installed by Fernando personally — which means what you agree to at the estimate is what shows up on install day.</p>
+          <div class="trust-list">
+            <div><b>30+ Years</b><span>Hands-on tile installation experience</span></div>
+            <div><b>Owner-Operated</b><span>Fernando works every job himself</span></div>
+            <div><b>Precision Layouts</b><span>Level floors, tight seams, clean lines</span></div>
+            <div><b>Proper Waterproofing</b><span>Every wet area, done right the first time</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section id="area">
+    <div class="wrap">
+      <div class="area-grid">
+        <div class="fade-up">
+          <div class="eyebrow">Where we work</div>
+          <h2 style="font-size:clamp(28px,3.4vw,40px);">Proudly serving Atlanta and the surrounding metro.</h2>
+          <p style="color:var(--ink-dim); margin-top:16px; max-width:460px;">Fernando takes on floor, bathroom, and backsplash projects throughout the greater Atlanta area. Not sure if your city is covered? Reach out — if it's within reasonable driving distance, chances are we can help.</p>
+          <div class="city-list">
+            <span class="main">Atlanta</span>
+            <span>Milton</span>
+            <span>Alpharetta</span>
+            <span>Roswell</span>
+            <span>Sandy Springs</span>
+            <span>Johns Creek</span>
+            <span>Marietta</span>
+            <span>Woodstock</span>
+            <span>Cumming</span>
+            <span>+ surrounding areas</span>
+          </div>
+        </div>
+        <div class="fade-up">
+          <div class="radar">
+            <div class="center"></div>
+            <span class="pin" style="top:8%; left:50%; transform:translateX(-50%);">Cumming</span>
+            <span class="pin" style="top:22%; left:14%;">Woodstock</span>
+            <span class="pin" style="top:22%; right:8%;">Alpharetta</span>
+            <span class="pin" style="bottom:26%; left:6%;">Marietta</span>
+            <span class="pin" style="bottom:26%; right:4%;">Johns Creek</span>
+            <span class="pin" style="bottom:6%; left:50%; transform:translateX(-50%);">Sandy Springs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta fade-up">
+        <div>
+          <div class="eyebrow" style="color:#3a2314;">Free, no-pressure estimates</div>
+          <h2>Ready to start your project?</h2>
+          <p>Tell Fernando a bit about your floor, bathroom, or backsplash — he'll come take a look, talk through layout and material options, and give you a straight price.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="tel:+12254955414" class="btn btn-dark btn-lg" style="width:100%;">Call (225) 495-5414</a>
+          <a href="https://wa.me/12254955414" class="btn btn-outline-dark btn-lg" style="width:100%;">Message on WhatsApp</a>
+          <a href="mailto:info@tcstilecompany.com" class="btn btn-outline-dark btn-lg" style="width:100%;">info@tcstilecompany.com</a>
+          <p class="contact-line">Serving Atlanta, GA &amp; surrounding areas · Mon–Sat</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo">
+          <svg class="logo-mark" viewBox="6 2 68 88" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polygon points="50,6 70,26 50,46 30,26" fill="#E4B250"/>
+            <polygon points="30,26 50,46 30,66 10,46" fill="#AC8022"/>
+            <polygon points="50,46 70,66 50,86 30,66" fill="#92701E"/>
+          </svg>
+          <span>TCS Tile Co.</span>
+        </a>
+        <p>Owner-operated tile installation for floors, bathrooms, and backsplashes across metro Atlanta. Every job set personally by Fernando.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#services">Floor Installation</a>
+          <a href="#services">Bathroom Remodeling</a>
+          <a href="#services">Backsplashes</a>
+          <a href="#services">Waterproofing &amp; Prep</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#work">Our Work</a>
+          <a href="#about">About Fernando</a>
+          <a href="#area">Service Area</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+12254955414">(225) 495-5414</a>
+          <a href="mailto:info@tcstilecompany.com">info@tcstilecompany.com</a>
+          <p>Atlanta, GA</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TCS Tile Company Solution LLC. All rights reserved.</span>
+      <span>Site by <a href="https://www.gillydigital.com/" target="_blank" rel="noopener" style="color:var(--ink-dim); text-decoration:underline;">Gilly Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Before/after drag slider
+  (function(){
+    const wrap = document.getElementById('revealWrap');
+    const after = document.getElementById('afterImg');
+    const handle = document.getElementById('revealHandle');
+    if(!wrap) return;
+    let dragging = false;
+
+    function setPos(clientX){
+      const rect = wrap.getBoundingClientRect();
+      let pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      after.style.clipPath = `inset(0 0 0 ${pct}%)`;
+      handle.style.left = pct + '%';
+    }
+
+    wrap.addEventListener('pointerdown', (e)=>{ dragging = true; setPos(e.clientX); wrap.setPointerCapture(e.pointerId); });
+    wrap.addEventListener('pointermove', (e)=>{ if(dragging) setPos(e.clientX); });
+    wrap.addEventListener('pointerup', ()=> dragging = false);
+    wrap.addEventListener('pointerleave', ()=> dragging = false);
+
+    // simple auto demo nudge on load for discoverability
+    let t = 0;
+    const demo = setInterval(()=>{
+      if(dragging){ clearInterval(demo); return; }
+      t += 1;
+      const pct = 50 + Math.sin(t/6) * 12;
+      after.style.clipPath = `inset(0 0 0 ${pct}%)`;
+      handle.style.left = pct + '%';
+      if(t > 40){ clearInterval(demo); after.style.clipPath='inset(0 0 0 50%)'; handle.style.left='50%'; }
+    }, 60);
+  })();
+
+  // Mobile menu: pure CSS checkbox controls it (works even without JS).
+  // This just closes it automatically after tapping a link, as a nicety.
+  (function(){
+    const check = document.getElementById('menuCheck');
+    const menu = document.getElementById('mobileMenu');
+    if(!check || !menu) return;
+    menu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{ check.checked = false; }));
+  })();
+
+  // Portfolio lightbox
+  (function(){
+    const grid = document.getElementById('portfolioGrid');
+    if(!grid) return;
+    const figures = Array.from(grid.querySelectorAll('figure'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCaption = document.getElementById('lbCaption');
+    let current = 0;
+
+    function show(i){
+      current = (i + figures.length) % figures.length;
+      const fig = figures[current];
+      const img = fig.querySelector('img');
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lbCaption.textContent = fig.getAttribute('data-caption') || '';
+    }
+    function open(i){
+      show(i);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    figures.forEach((fig, i)=>{
+      fig.addEventListener('click', ()=> open(i));
+    });
+    document.getElementById('lbClose').addEventListener('click', close);
+    document.getElementById('lbPrev').addEventListener('click', ()=> show(current - 1));
+    document.getElementById('lbNext').addEventListener('click', ()=> show(current + 1));
+    lb.addEventListener('click', (e)=>{ if(e.target === lb) close(); });
+    document.addEventListener('keydown', (e)=>{
+      if(!lb.classList.contains('open')) return;
+      if(e.key === 'Escape') close();
+      if(e.key === 'ArrowLeft') show(current - 1);
+      if(e.key === 'ArrowRight') show(current + 1);
+    });
+  })();
+
+  // Fade-up on scroll (only enabled if the browser supports it — content
+  // is fully visible by default otherwise, see .fade-up CSS above)
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('js-anim');
+    const els = document.querySelectorAll('.fade-up');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12});
+    els.forEach(el=>io.observe(el));
+  })();
+</script>
+
+</body>
+</html>
