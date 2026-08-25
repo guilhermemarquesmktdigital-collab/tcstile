@@ -520,60 +520,107 @@
     color:var(--ink-dim);
   }
   .city-list span.main{ border-color:var(--accent); color:var(--accent); }
-  .radar{
+  .service-map{
     position:relative;
     aspect-ratio:1;
-    max-width:380px;
+    max-width:420px;
     margin:0 auto;
-    border-radius:50%;
+    border-radius:var(--radius-lg);
     border:1px solid var(--line);
-    display:flex; align-items:center; justify-content:center;
+    background:#1a1712;
+    overflow:hidden;
   }
-  .radar::before, .radar::after{
-    content:""; position:absolute; border-radius:50%; border:1px solid var(--line);
-  }
-  .radar::before{ inset:16%; }
-  .radar::after{ inset:34%; }
-  .radar .center{
-    width:14px; height:14px; border-radius:50%; background:var(--accent);
-    box-shadow:0 0 0 8px rgba(224,90,38,0.14);
-    position:relative; z-index:2;
-  }
-  .radar .pin{
-    position:absolute;
-    font-size:11.5px;
-    color:var(--ink-dim);
-    white-space:nowrap;
+  .service-map svg{ width:100%; height:100%; display:block; }
+  .service-map .map-road{ stroke:var(--line); stroke-width:2.5; fill:none; }
+  .service-map .map-loop{ stroke:var(--line); stroke-width:2.5; fill:none; }
+  .service-map .map-dot{ fill:var(--ink-faint); }
+  .service-map .map-dot.main{ fill:var(--accent); }
+  .service-map .map-label{
     font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    fill:var(--ink-dim);
+  }
+  .service-map .map-label.main{ fill:var(--ink); font-weight:700; }
+  .service-map .map-ping{
+    fill:var(--accent);
+    opacity:0.16;
+    transform-origin:205px 205px;
+    animation:mapPulse 2.6s ease-out infinite;
+  }
+  @keyframes mapPulse{
+    0%{ transform:scale(0.6); opacity:0.28; }
+    100%{ transform:scale(1.8); opacity:0; }
   }
   @media (max-width:860px){
     .area-grid{ grid-template-columns:1fr; }
-    .radar{ order:-1; }
-  }
-  @media (max-width:640px){
-    .radar .pin{ display:none; }
+    .service-map{ order:-1; }
   }
 
   /* ===== CTA / Contact ===== */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:28px;
+    align-items:stretch;
+  }
   .cta{
     background:var(--accent);
     color:#17140f;
     border-radius:var(--radius-lg);
-    padding:64px 48px;
-    display:grid;
-    grid-template-columns:1.2fr 0.8fr;
-    gap:40px;
-    align-items:center;
+    padding:48px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:32px;
   }
-  .cta h2{ color:#17140f; font-size:clamp(28px,3.4vw,40px); margin-bottom:14px; }
+  .cta h2{ color:#17140f; font-size:clamp(26px,3vw,36px); margin-bottom:14px; }
   .cta p{ color:#3a2314; font-size:16px; max-width:440px; }
-  .cta-actions{ display:flex; flex-direction:column; gap:12px; align-items:flex-start; }
+  .cta-actions{ display:flex; flex-direction:column; gap:12px; align-items:flex-start; width:100%; }
   .cta .btn-dark{ background:#17140f; color:var(--surface-light); }
   .cta .btn-dark:hover{ background:#241f16; }
   .cta .btn-outline-dark{ background:transparent; border:1px solid rgba(23,20,15,0.4); color:#17140f; }
   .contact-line{ font-size:13.5px; color:#3a2314; margin-top:6px; }
-  @media (max-width:800px){
-    .cta{ grid-template-columns:1fr; padding:44px 26px; }
+
+  .contact-form-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:40px;
+  }
+  .contact-form-card h3{ font-size:22px; margin-bottom:8px; }
+  .form-sub{ color:var(--ink-dim); font-size:14.5px; margin-bottom:26px; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .form-field{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+  .form-field label{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .form-field input, .form-field textarea{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:12px 14px;
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:14.5px;
+    width:100%;
+  }
+  .form-field input:focus, .form-field textarea:focus{
+    outline:none; border-color:var(--accent);
+  }
+  .form-field textarea{ resize:vertical; min-height:100px; }
+  .form-status{ font-size:13.5px; margin-top:14px; min-height:18px; }
+  .form-status.success{ color:#8fd19e; }
+  .form-status.error{ color:#e08b7a; }
+
+  @media (max-width:900px){
+    .contact-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width:600px){
+    .form-row{ grid-template-columns:1fr; }
+    .contact-form-card{ padding:28px 22px; }
+    .cta{ padding:40px 26px; }
   }
 
   /* ===== Footer ===== */
@@ -716,7 +763,7 @@
             <a href="#work" class="btn btn-ghost btn-lg">See Our Work</a>
           </div>
           <div class="hero-stats">
-            <div class="stat"><b>30+</b><span>Years of experience</span></div>
+            <div class="stat"><b id="statYears" data-count-to="30">30+</b><span>Years of experience</span></div>
             <div class="stat"><b>1</b><span>Owner on every job</span></div>
             <div class="stat"><b>ATL</b><span>&amp; surrounding areas</span></div>
           </div>
@@ -808,11 +855,6 @@
         <p>Every project below was measured, cut, and set by Fernando — no two layouts are the same.</p>
       </div>
       <div class="portfolio-grid fade-up" id="portfolioGrid">
-        <figure class="pf-tall" data-caption="Diagonal checkerboard entry floor">
-          <img src="images/portfolio-diagonal-floor-entry.jpg" alt="Diagonal checkerboard porcelain floor tile at a front entryway" loading="lazy">
-          <span class="zoom-hint">⤢</span>
-          <figcaption>Diagonal checkerboard entry floor</figcaption>
-        </figure>
         <figure class="pf-wide" data-caption="Marble-look tub &amp; shower surround">
           <img src="images/portfolio-marble-tub-shower.jpg" alt="Marble-look tub and shower surround with mosaic floor accent" loading="lazy">
           <span class="zoom-hint">⤢</span>
@@ -822,11 +864,6 @@
           <img src="images/portfolio-hex-mosaic-floor.jpg" alt="Black and white hexagon mosaic shower floor detail" loading="lazy">
           <span class="zoom-hint">⤢</span>
           <figcaption>Hex mosaic shower floor</figcaption>
-        </figure>
-        <figure data-caption="Mosaic accent wall">
-          <img src="images/portfolio-pebble-accent.jpg" alt="Marble hexagon mosaic accent wall in a shower" loading="lazy">
-          <span class="zoom-hint">⤢</span>
-          <figcaption>Mosaic accent wall</figcaption>
         </figure>
         <figure class="pf-wide" data-caption="Large-format wall tile with mosaic border">
           <img src="images/portfolio-espresso-wall.jpg" alt="Large-format espresso brown tile shower wall with hexagon mosaic border" loading="lazy">
@@ -853,6 +890,61 @@
           <span class="zoom-hint">⤢</span>
           <figcaption>Custom waterproofed shower pan</figcaption>
         </figure>
+        <figure class="pf-tall" data-caption="Glass shower, double niche in marble">
+          <img src="images/portfolio-glass-shower-double-niche.jpg" alt="Frameless glass shower with marble-look tile and two matching mosaic niches" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Glass shower, double niche in marble</figcaption>
+        </figure>
+        <figure data-caption="Hex mosaic floor, flower pattern">
+          <img src="images/portfolio-hex-flower-floor.jpg" alt="White and gray hexagon mosaic shower floor in a flower pattern" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Hex mosaic floor, flower pattern</figcaption>
+        </figure>
+        <figure class="pf-wide" data-caption="Shower niche detail">
+          <img src="images/portfolio-shower-niche-detail.jpg" alt="Built-in shower niche with mosaic tile lining inside a marble-look shower" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Shower niche detail</figcaption>
+        </figure>
+        <figure data-caption="Charcoal hexagon accent">
+          <img src="images/portfolio-charcoal-hex-corner.jpg" alt="Charcoal hexagon mosaic shower floor accent against marble-look walls" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Charcoal hexagon accent</figcaption>
+        </figure>
+        <figure class="pf-tall" data-caption="Black &amp; white octagon floor">
+          <img src="images/portfolio-bw-octagon-floor.jpg" alt="Classic black and white octagon mosaic bathroom floor" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Black &amp; white octagon floor</figcaption>
+        </figure>
+        <figure class="pf-wide" data-caption="Kitchen backsplash, mosaic stone">
+          <img src="images/portfolio-kitchen-backsplash.jpg" alt="Gray and white stone mosaic kitchen backsplash under white cabinets" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Kitchen backsplash, mosaic stone</figcaption>
+        </figure>
+        <figure data-caption="Full kitchen remodel">
+          <img src="images/portfolio-kitchen-full.jpg" alt="Full kitchen with white cabinets, mosaic backsplash, and quartz countertops" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Full kitchen remodel</figcaption>
+        </figure>
+        <figure data-caption="Marble accent wall">
+          <img src="images/portfolio-marble-accent-wall.jpg" alt="Marble-look tile accent wall in an angled ceiling nook" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Marble accent wall</figcaption>
+        </figure>
+        <figure class="pf-wide" data-caption="Marble-look floor, large format">
+          <img src="images/portfolio-marble-floor-wide.jpg" alt="Large-format marble-look porcelain floor tile in a wide room" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Marble-look floor, large format</figcaption>
+        </figure>
+        <figure data-caption="Marble tile, closet wall">
+          <img src="images/portfolio-marble-wall-closet.jpg" alt="Marble-look tile accent wall next to a closet" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Marble tile, closet wall</figcaption>
+        </figure>
+        <figure data-caption="Marble wall installation">
+          <img src="images/process-marble-wall-install.jpg" alt="Marble-look tile wall installation in progress near a kitchen stairwell" loading="lazy">
+          <span class="zoom-hint">⤢</span>
+          <figcaption>Marble wall installation</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -860,6 +952,7 @@
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <div class="lightbox-inner">
+
       <button class="lightbox-close" id="lbClose" aria-label="Close">✕</button>
       <button class="lightbox-prev" id="lbPrev" aria-label="Previous photo">‹</button>
       <img id="lbImg" src="" alt="">
@@ -913,14 +1006,57 @@
           </div>
         </div>
         <div class="fade-up">
-          <div class="radar">
-            <div class="center"></div>
-            <span class="pin" style="top:8%; left:50%; transform:translateX(-50%);">Cumming</span>
-            <span class="pin" style="top:22%; left:14%;">Woodstock</span>
-            <span class="pin" style="top:22%; right:8%;">Alpharetta</span>
-            <span class="pin" style="bottom:26%; left:6%;">Marietta</span>
-            <span class="pin" style="bottom:26%; right:4%;">Johns Creek</span>
-            <span class="pin" style="bottom:6%; left:50%; transform:translateX(-50%);">Sandy Springs</span>
+          <div class="service-map" role="img" aria-label="Stylized map of metro Atlanta showing the areas TCS Tile Company serves">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+              <!-- I-285 perimeter loop -->
+              <ellipse class="map-loop" cx="205" cy="205" rx="118" ry="112"/>
+              <!-- radiating highways -->
+              <path class="map-road" d="M205,205 L205,20"/>
+              <path class="map-road" d="M205,205 L340,70"/>
+              <path class="map-road" d="M205,205 L365,205"/>
+              <path class="map-road" d="M205,205 L330,340"/>
+              <path class="map-road" d="M205,205 L205,385"/>
+              <path class="map-road" d="M205,205 L70,340"/>
+              <path class="map-road" d="M205,205 L45,205"/>
+              <path class="map-road" d="M205,205 L95,80"/>
+
+              <!-- Atlanta (center hub) -->
+              <circle class="map-ping" cx="205" cy="205" r="26"/>
+              <circle class="map-dot main" cx="205" cy="205" r="7"/>
+              <text class="map-label main" x="217" y="200" font-size="16">Atlanta</text>
+
+              <!-- Marietta -->
+              <circle class="map-dot" cx="118" cy="182" r="5"/>
+              <text class="map-label" x="45" y="178" font-size="13">Marietta</text>
+
+              <!-- Milton -->
+              <circle class="map-dot" cx="168" cy="78" r="5"/>
+              <text class="map-label" x="98" y="65" font-size="13">Milton</text>
+
+              <!-- Alpharetta -->
+              <circle class="map-dot" cx="245" cy="70" r="5"/>
+              <text class="map-label" x="255" y="66" font-size="13">Alpharetta</text>
+
+              <!-- Roswell -->
+              <circle class="map-dot" cx="228" cy="105" r="5"/>
+              <text class="map-label" x="238" y="118" font-size="13">Roswell</text>
+
+              <!-- Sandy Springs -->
+              <circle class="map-dot" cx="255" cy="150" r="5"/>
+              <text class="map-label" x="265" y="147" font-size="13">Sandy Springs</text>
+
+              <!-- Johns Creek -->
+              <circle class="map-dot" cx="310" cy="110" r="5"/>
+              <text class="map-label" x="255" y="98" font-size="13">Johns Creek</text>
+
+              <!-- Woodstock -->
+              <circle class="map-dot" cx="95" cy="115" r="5"/>
+              <text class="map-label" x="20" y="112" font-size="13">Woodstock</text>
+
+              <!-- Cumming -->
+              <circle class="map-dot" cx="245" cy="35" r="5"/>
+              <text class="map-label" x="255" y="32" font-size="13">Cumming</text>
+            </svg>
           </div>
         </div>
       </div>
@@ -930,17 +1066,53 @@
   <!-- CTA / CONTACT -->
   <section id="contact">
     <div class="wrap">
-      <div class="cta fade-up">
-        <div>
-          <div class="eyebrow" style="color:#3a2314;">Free, no-pressure estimates</div>
-          <h2>Ready to start your project?</h2>
-          <p>Tell Fernando a bit about your floor, bathroom, or backsplash — he'll come take a look, talk through layout and material options, and give you a straight price.</p>
+      <div class="contact-grid">
+        <div class="cta fade-up">
+          <div>
+            <div class="eyebrow" style="color:#3a2314;">Free, no-pressure estimates</div>
+            <h2>Ready to start your project?</h2>
+            <p>Tell Fernando a bit about your floor, bathroom, or backsplash — he'll come take a look, talk through layout and material options, and give you a straight price.</p>
+          </div>
+          <div class="cta-actions">
+            <a href="tel:+12254955414" class="btn btn-dark btn-lg" style="width:100%;">Call (225) 495-5414</a>
+            <a href="https://wa.me/12254955414" class="btn btn-outline-dark btn-lg" style="width:100%;">Message on WhatsApp</a>
+            <p class="contact-line">Serving Atlanta, GA &amp; surrounding areas · Mon–Sat</p>
+          </div>
         </div>
-        <div class="cta-actions">
-          <a href="tel:+12254955414" class="btn btn-dark btn-lg" style="width:100%;">Call (225) 495-5414</a>
-          <a href="https://wa.me/12254955414" class="btn btn-outline-dark btn-lg" style="width:100%;">Message on WhatsApp</a>
-          <a href="mailto:info@tcstilecompany.com" class="btn btn-outline-dark btn-lg" style="width:100%;">info@tcstilecompany.com</a>
-          <p class="contact-line">Serving Atlanta, GA &amp; surrounding areas · Mon–Sat</p>
+
+        <div class="contact-form-card fade-up">
+          <h3>Or send the details straight through</h3>
+          <p class="form-sub">Fill this out and Fernando will get back to you, usually within a business day.</p>
+          <form id="estimateForm" action="https://formspree.io/f/xbgrvkja" method="POST">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_subject" value="New estimate request — TCS Tile Company website">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="f-name">Name</label>
+                <input type="text" id="f-name" name="name" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="f-phone">Phone number</label>
+                <input type="tel" id="f-phone" name="phone" required autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="f-email">Email</label>
+                <input type="email" id="f-email" name="email" required autocomplete="email">
+              </div>
+              <div class="form-field">
+                <label for="f-address">Property address</label>
+                <input type="text" id="f-address" name="address" autocomplete="street-address">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="f-message">Message</label>
+              <textarea id="f-message" name="message" rows="4" required placeholder="What are you looking to have done?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-accent btn-lg" id="formSubmitBtn" style="width:100%;">Send message</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </div>
@@ -979,7 +1151,7 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <a href="tel:+12254955414">(225) 495-5414</a>
-          <a href="mailto:info@tcstilecompany.com">info@tcstilecompany.com</a>
+          <a href="#contact">Send a message</a>
           <p>Atlanta, GA</p>
         </div>
       </div>
@@ -1075,6 +1247,82 @@
       if(e.key === 'ArrowLeft') show(current - 1);
       if(e.key === 'ArrowRight') show(current + 1);
     });
+  })();
+
+  // Estimate form: submit via fetch to Formspree so the page doesn't
+  // navigate away; falls back to a normal form POST if fetch/JS fails.
+  (function(){
+    const form = document.getElementById('estimateForm');
+    if(!form) return;
+    const statusEl = document.getElementById('formStatus');
+    const btn = document.getElementById('formSubmitBtn');
+    if(!('fetch' in window)) return; // let it submit normally
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      statusEl.textContent = '';
+      statusEl.className = 'form-status';
+      btn.disabled = true;
+      const originalLabel = btn.textContent;
+      btn.textContent = 'Sending…';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response){
+        if(response.ok){
+          form.reset();
+          statusEl.textContent = "Thanks — your message is in. Fernando will be in touch soon.";
+          statusEl.className = 'form-status success';
+        } else {
+          return response.json().then(function(data){
+            const msg = (data && data.errors && data.errors.length)
+              ? data.errors.map(function(er){ return er.message; }).join(', ')
+              : 'Something went wrong sending that. Please try again or call/text instead.';
+            statusEl.textContent = msg;
+            statusEl.className = 'form-status error';
+          });
+        }
+      }).catch(function(){
+        statusEl.textContent = 'Something went wrong sending that. Please try again or call/text instead.';
+        statusEl.className = 'form-status error';
+      }).finally(function(){
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+      });
+    });
+  })();
+
+  // Count-up animation for the "30+" hero stat
+  (function(){
+    const el = document.getElementById('statYears');
+    if(!el || !('IntersectionObserver' in window)) return;
+    const target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduceMotion) return; // leave static "30+" as-is
+
+    function animate(){
+      const duration = 1400;
+      const start = performance.now();
+      function tick(now){
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+        const val = Math.round(eased * target);
+        el.textContent = val + '+';
+        if(p < 1){ requestAnimationFrame(tick); }
+        else { el.textContent = target + '+'; }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    el.textContent = '0+';
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){ animate(); io.unobserve(en.target); }
+      });
+    }, {threshold:0.5});
+    io.observe(el);
   })();
 
   // Fade-up on scroll (only enabled if the browser supports it — content
